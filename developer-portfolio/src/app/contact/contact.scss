@@ -1,0 +1,193 @@
+// Variables (consider moving to global if not already)
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$text-color-dark: #343a40;
+$text-color-light: #f8f9fa;
+$section-background: #fff; // White background for content sections
+$form-border-color: #ced4da;
+$input-background: #fff;
+$button-primary-bg: $primary-color;
+$button-primary-text: #fff;
+
+.contact-section {
+  padding: 3rem 0;
+  background-color: $section-background;
+
+  .container {
+    // Using global .container styles
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: $text-color-dark;
+    margin-bottom: 1rem;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background-color: $primary-color;
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
+  }
+
+  .section-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: lighten($text-color-dark, 25%);
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-content-wrapper {
+    display: flex;
+    flex-wrap: wrap; // Allow wrapping on smaller screens
+    gap: 3rem; // Space between form and info
+    background-color: #f8f9fa; // Slightly off-white background for the content area
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+
+    @media (max-width: 992px) {
+      flex-direction: column;
+      gap: 2rem;
+      padding: 1.5rem;
+    }
+  }
+
+  .contact-form-container {
+    flex: 2; // Form takes more space
+    min-width: 300px; // Minimum width for the form
+  }
+
+  .contact-info-container {
+    flex: 1;
+    min-width: 280px; // Minimum width for info
+    background-color: darken($section-background, 2%); // Slightly different bg for info section
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e7e7e7;
+  }
+
+  .form-title, .info-title {
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: $text-color-dark;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #ddd;
+  }
+
+  // Form specific styles
+  form {
+    .form-group {
+      margin-bottom: 1.25rem;
+
+      label {
+        display: block;
+        font-weight: 500;
+        color: lighten($text-color-dark, 10%);
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border: 1px solid $form-border-color;
+        border-radius: 5px;
+        font-size: 1rem;
+        background-color: $input-background;
+        color: $text-color-dark;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+          box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+        }
+
+        &::placeholder {
+          color: #aaa;
+        }
+      }
+
+      textarea {
+        resize: vertical; // Allow vertical resize, disable horizontal
+        min-height: 120px;
+      }
+    }
+
+    .submit-button {
+      display: inline-block;
+      background-color: $button-primary-bg;
+      color: $button-primary-text;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+
+      &:hover {
+        background-color: darken($button-primary-bg, 10%);
+        transform: translateY(-2px);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  // Contact info specific styles
+  .contact-info-container {
+    .info-item {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+
+      .info-label {
+        font-weight: 600;
+        color: $text-color-dark;
+        margin-right: 0.5rem;
+      }
+
+      .info-value {
+        color: $primary-color;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .social-links-text {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+        border-top: 1px solid #eee;
+        p {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        a {
+            color: $primary-color;
+            text-decoration: none;
+            margin-right: 0.75rem;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+  }
+}
