@@ -1,0 +1,21 @@
+// Styles for the main app component (app.component.ts/html/scss)
+
+// .app-container is defined in app.component.html
+// Its flex properties are handled in global styles.scss to ensure
+// it takes full viewport height and allows main-content to push footer down.
+
+// No specific styles needed here for the basic layout at this moment,
+// as global styles are setting up the flex container for app-root
+// and the .app-container div. We can add more specific styles later if required.
+
+// Example: If we wanted a max-width for the overall app content,
+// but not for the header/footer that might span full width:
+/*
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto; // Center it
+  padding: 20px;
+}
+*/
+// For now, main-content padding is handled in styles.scss
+// and it will take the available width.

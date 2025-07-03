@@ -1,0 +1,61 @@
+/* Global Styles */
+
+// Basic Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f4; // A light background for the body
+}
+
+a {
+  text-decoration: none;
+  color: #007bff; // Standard link color
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Basic container for centering content if needed later
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 1.5rem;
+  overflow: hidden; // Clear floats
+}
+
+// Ensure app-root and our main app-container fill the viewport height
+app-root, .app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1; // Allows the main content to grow and push the footer down
+  padding: 1rem 0; // Some padding for content area
+}
+
+// Basic styling for headings (can be refined per component)
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+// More specific styles will go into component SCSS files
+// or more organized global partials later.
+/* You can add global styles to this file, and also import other style files */

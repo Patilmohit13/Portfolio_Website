@@ -1,0 +1,54 @@
+.site-footer {
+  background-color: #1c2833; // A darker shade than the header, or a complementary dark color
+  color: #bdc3c7; // A light grey for text, less bright than header text
+  padding: 2rem 0;
+  text-align: center;
+  // box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05); // Optional: shadow on top of footer
+
+  .footer-content {
+    // Assuming .container class is globally available for max-width and padding
+    // If not, define it here or ensure it's inherited
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .copyright {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .social-links {
+    a {
+      color: #bdc3c7;
+      text-decoration: none;
+      margin: 0 0.75rem;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #3498db; // A highlight color on hover, same as header link hover
+        text-decoration: none;
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @media (min-width: 768px) {
+    .footer-content {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .copyright {
+      margin-bottom: 0; // Reset margin for larger screens
+    }
+
+    .social-links {
+      margin-left: 1rem; // Add some space if on the same line
+    }
+  }
+}

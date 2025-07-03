@@ -1,0 +1,133 @@
+// Variables (consider moving to a global _variables.scss if used widely)
+$primary-color: #007bff; // Example primary color (blue)
+$secondary-color: #6c757d; // Example secondary color (grey)
+$text-color-light: #f8f9fa;
+$text-color-dark: #343a40;
+$hero-background: #e9ecef; // Light grey background for hero
+
+.hero-section {
+  background-color: $hero-background;
+  color: $text-color-dark;
+  min-height: calc(100vh - 140px); // Adjust based on header/footer height, or use other methods
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0; // Generous padding
+
+  .container.hero-content { // Specificity for hero content within a container
+    text-align: center;
+    // Optional: if using hero-image alongside hero-text
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-between;
+    // gap: 2rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  .hero-text {
+    max-width: 700px; // Constrain text width for readability
+    margin: 0 auto; // Center if not using flex on parent
+
+    h1 {
+      font-size: 3rem; // Large headline
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+
+      .developer-name {
+        color: $primary-color; // Highlight the name
+      }
+
+      @media (max-width: 768px) {
+        font-size: 2.5rem;
+      }
+      @media (max-width: 576px) {
+        font-size: 2rem;
+      }
+    }
+
+    .tagline {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      color: lighten($text-color-dark, 20%); // Slightly lighter than main text
+
+      @media (max-width: 768px) {
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+  // .hero-image {
+  //   flex-shrink: 0; // Prevent image from shrinking too much
+  //   img {
+  //     max-width: 300px; // Adjust as needed
+  //     border-radius: 50%; // Example: circular image
+  //     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  //   }
+  //   @media (max-width: 768px) {
+  //     margin-top: 2rem; // Space above image on mobile
+  //   }
+  // }
+
+  .cta-buttons {
+    margin-top: 1.5rem;
+
+    .cta-button {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      margin: 0.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      border: 2px solid transparent;
+
+      &.primary {
+        background-color: $primary-color;
+        color: $text-color-light;
+        border-color: $primary-color;
+
+        &:hover {
+          background-color: darken($primary-color, 10%);
+          border-color: darken($primary-color, 10%);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+      }
+
+      &.secondary {
+        background-color: transparent;
+        color: $primary-color;
+        border: 2px solid $primary-color;
+
+        &:hover {
+          background-color: $primary-color;
+          color: $text-color-light;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+      }
+
+      @media (max-width: 576px) {
+        display: block; // Stack buttons on very small screens
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}
+
+// Example for a potential next section
+// .services-overview {
+//   padding: 3rem 0;
+//   text-align: center;
+//   h2 {
+//     font-size: 2rem;
+//     margin-bottom: 2rem;
+//   }
+// }

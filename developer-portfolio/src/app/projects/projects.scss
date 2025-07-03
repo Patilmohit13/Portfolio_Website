@@ -1,0 +1,188 @@
+// Variables (consider moving to global if not already)
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$text-color-dark: #343a40;
+$text-color-light: #f8f9fa;
+$card-background: #ffffff;
+$card-border-color: #e0e0e0;
+$shadow-light: rgba(0, 0, 0, 0.1);
+
+.projects-section {
+  padding: 3rem 0;
+  background-color: #f8f9fa; // A very light grey background for the section
+
+  .container {
+    // Using global .container styles
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: $text-color-dark;
+    margin-bottom: 1rem;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background-color: $primary-color;
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
+  }
+
+  .section-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: lighten($text-color-dark, 25%);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+
+    a {
+      color: $primary-color;
+      font-weight: 500;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); // Responsive grid
+    gap: 2rem; // Space between cards
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+     @media (max-width: 480px) {
+      grid-template-columns: 1fr; // Single column on very small screens
+    }
+  }
+
+  .project-card {
+    background-color: $card-background;
+    border: 1px solid $card-border-color;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px $shadow-light;
+    overflow: hidden; // To contain image and ensure border-radius applies
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .card-image-container {
+      width: 100%;
+      height: 200px; // Fixed height for image container
+      overflow: hidden;
+      background-color: #f0f0f0; // Placeholder background if image is missing
+
+      .project-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; // Cover the area, may crop
+        transition: transform 0.3s ease;
+      }
+      &:hover .project-image {
+         transform: scale(1.05); // Slight zoom on image hover
+      }
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1; // Allows content to fill card if card heights vary due to grid
+
+      .project-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $text-color-dark;
+        margin-bottom: 0.75rem;
+      }
+
+      .project-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: lighten($text-color-dark, 20%);
+        margin-bottom: 1rem;
+        flex-grow: 1; // Pushes links to the bottom
+      }
+
+      .technologies-container {
+        margin-bottom: 1rem;
+        .technologies-title {
+          font-size: 0.9rem;
+          font-weight: 600;
+          color: $secondary-color;
+          margin-bottom: 0.5rem;
+          text-transform: uppercase;
+        }
+        .technologies-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+
+          li {
+            background-color: #e9ecef; // Light grey tags
+            color: $secondary-color;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+          }
+        }
+      }
+
+      .project-links {
+        margin-top: auto; // Pushes links to the very bottom of the card content
+        padding-top: 1rem; // Space above links
+        border-top: 1px solid $card-border-color; // Separator line
+        display: flex;
+        justify-content: space-around; // Or space-between if only two links
+        gap: 1rem;
+
+        .project-link {
+          color: $primary-color;
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 0.9rem;
+          padding: 0.5rem 0; // Add some padding for easier clicking
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: darken($primary-color, 10%);
+            text-decoration: underline;
+          }
+
+          .link-icon {
+            margin-left: 0.3rem;
+            display: inline-block;
+            transition: transform 0.2s ease;
+          }
+          &:hover .link-icon {
+            transform: translateX(3px);
+          }
+        }
+      }
+    }
+  }
+
+  .no-projects-message {
+    text-align: center;
+    font-size: 1.1rem;
+    color: $secondary-color;
+    padding: 2rem;
+  }
+}

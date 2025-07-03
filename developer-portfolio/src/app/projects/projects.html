@@ -1,0 +1,38 @@
+<section class="projects-section">
+  <div class="container">
+    <h1 class="section-title">My Projects</h1>
+    <p class="section-intro">Here are a few examples of projects I've worked on. You can find more on my <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">GitHub profile</a>.</p>
+
+    <div class="project-grid" *ngIf="projects && projects.length > 0; else noProjects">
+      <div class="project-card" *ngFor="let project of projects">
+        <div class="card-image-container" *ngIf="project.imageUrl">
+          <img [src]="project.imageUrl" [alt]="project.title + ' screenshot'" class="project-image">
+        </div>
+        <div class="card-content">
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-description">{{ project.description }}</p>
+
+          <div class="technologies-container" *ngIf="project.technologies && project.technologies.length > 0">
+            <h4 class="technologies-title">Technologies Used:</h4>
+            <ul class="technologies-list">
+              <li *ngFor="let tech of project.technologies">{{ tech }}</li>
+            </ul>
+          </div>
+
+          <div class="project-links">
+            <a *ngIf="project.liveUrl" [href]="project.liveUrl" target="_blank" rel="noopener noreferrer" class="project-link live-demo">
+              Live Demo <span class="link-icon">&rarr;</span>
+            </a>
+            <a *ngIf="project.sourceUrl" [href]="project.sourceUrl" target="_blank" rel="noopener noreferrer" class="project-link source-code">
+              Source Code <span class="link-icon">&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noProjects>
+      <p class="no-projects-message">More projects coming soon. Please check back later!</p>
+    </ng-template>
+  </div>
+</section>

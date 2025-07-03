@@ -1,0 +1,15 @@
+<header class="site-header">
+  <div class="container header-content">
+    <div class="logo">
+      <a routerLink="/home">{{ developerName }}</a>
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a routerLink="/home" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+        <li><a routerLink="/about" routerLinkActive="active-link">About</a></li>
+        <li><a routerLink="/projects" routerLinkActive="active-link">Projects</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active-link">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
